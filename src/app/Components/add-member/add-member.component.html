@@ -1,1 +1,61 @@
-<p>add-member works!</p>
+
+<br>
+
+<div class="col-sm-10 offset-sm-1 ">
+  <div class="row sm-3">
+    <label class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]=member.firstName placeholder="First Name" aria-label="First Name">
+    </div>
+  </div>
+  <br>
+  <div class="row sm-3">
+    <label class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]=member.lastName placeholder="Last Name"
+        aria-label="Last Name">
+    </div>
+  </div>
+  <br>
+  <div class="row sm-3">
+    <label class="col-sm-2 col-form-label">Date of Birth</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" [(ngModel)]=member.dob placeholder="Date of Birth"
+        aria-label="Date of Birth">
+    </div>
+  </div>
+  <br>
+  <div class="row sm-3">
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]=member.email placeholder="Email" aria-label="Email">
+    </div>
+  </div>
+    <br>
+    <div class="row sm-3">
+      <label class="col-sm-2 col-form-label">Adress</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]=member.address placeholder="Adress" aria-label="Adress">
+      </div>
+    </div>
+    <br>
+    <div class="row sm-3">
+      <label class="col-sm-2 col-form-label">State</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]=member.state placeholder="State" aria-label="State">
+      </div>
+    </div>
+    <br>
+    <div class="row sm-3">
+        <label class="col-sm-2 col-form-label">City</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" [(ngModel)]=member.city placeholder="City" aria-label="City">
+        </div>
+      </div>
+
+
+    <br>
+    <div class="col-12">
+      <button type="button" class="btn btn-success" (click)="save()">Submit</button>
+    </div>
+  </div>

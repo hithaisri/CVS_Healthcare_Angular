@@ -5,37 +5,29 @@ import { ClaimService } from 'src/app/Services/claim.service';
 import { MemberService } from 'src/app/Services/member.service';
 
 @Component({
-  selector: 'app-show-members',
-  templateUrl: './show-members.component.html',
-  styleUrls: ['./show-members.component.css']
+  selector: 'app-show-my-member',
+  templateUrl: './show-my-member.component.html',
+  styleUrls: ['./show-my-member.component.css']
 })
-export class ShowMembersComponent implements OnInit {
+export class ShowMyMemberComponent implements OnInit {
 
-  members: Member[] = [];
-  member: Member = new Member();
-  claim: Claim = new Claim();
-  claims: Claim[] = [];
-  
+  members: Member[]=[];
+
   display = "none";
 
-  contentText= "";
-  
-  
-  openModalNew(content:string) {
-    this.contentText=content;
-    this.display = "block";
-  }
- 
-  openModal(memberId:number) {
-    this.claim.memberId=memberId;
-    this.display = "block";
-  }
+  member:Member=new Member();
+
+  claim : Claim=new Claim();
+
+
   onCloseHandled() {
     this.display = "none";
   }
 
-  refresh(){
-    window.location.reload();
+  
+  openModalNew(memberId:number) {
+    this.claim.memberId=memberId;
+    this.display = "block";
   }
 
   submitClaim(){
@@ -53,19 +45,14 @@ export class ShowMembersComponent implements OnInit {
     )
   }
 
-  showClaims(memberId:number){
-    const observable = this.claimService.getClaims(memberId);
-    observable.subscribe((response: any)=>{
-      this.claims = response as Claim[];
-    })
-  }
-
   constructor(public memberService:MemberService,public claimService:ClaimService) { }
 
   ngOnInit(): void {
-    const observable = this.memberService.getMembers();
+    let memberId= sessionStorage.getItem('memberId');
+    const observable = this.memberService.getMemberById(parseInt(memberId));
     observable.subscribe((response: any)=>{
-      this.members = response as Member[];
+      this.member = response as Member;
+      this.members.push(this.member);
     })
   }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Member from 'src/app/Entity/Member';
+import { MemberService } from 'src/app/Services/member.service';
 
 @Component({
   selector: 'app-add-member',
@@ -7,7 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMemberComponent implements OnInit {
 
-  constructor() { }
+  member : Member=new Member();
+
+  save() {
+    const observable = this.memberService.saveMember(this.member);
+    observable.subscribe(
+      (response: any) => {
+        console.log(response);
+        alert(response);
+        window.location.reload();
+      },
+      function(error) {
+        console.log(error);
+        alert("Something went wrong please try again!")
+      }
+    )
+  }
+  constructor(public memberService:MemberService) { }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,16 @@
+.logo { 
+    width: 1300px;
+    height: 300px;
+    text-align:center;
+  }
+  
+  .logo img {
+    display:inline-block;
+  } 
+
+  h1 {text-align: center;font-style: oblique;color: hsla(160, 100%, 30%, 0.993);}
+  h2 {text-align: center;}
+  h3 {text-align: center;}
+  p {text-align: center;font-style: italic;color: hsla(276, 53%, 39%, 0.993);}
+  i {text-align: center;color: hsla(323, 100%, 30%, 0.993);}
+

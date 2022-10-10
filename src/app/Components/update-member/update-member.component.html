@@ -1,1 +1,72 @@
-<p>update-member works!</p>
+<div class="container py-5 text-center tableclr">
+    <h3 class="text-center">Book Details</h3>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr class="text-center">
+                <th>Member Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Date of birth</th>
+                <th>Address</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of members">
+                <td>{{s.id}}</td>
+                <td>{{s.firstName}}</td>
+                <td>{{s.lastName}}</td>
+                <td>{{s.email}}</td>
+                <td>{{s.dob | date:'d/M/yyyy'}}</td>
+                <td>{{s.address}}</td>
+                <td>{{s.state}}</td>
+                <td>{{s.city}}</td>
+                <td><a class="btn btn-info" (click)="updateBook(s,s.id)">Update</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container">
+
+    <label class="col-sm-2 col-form-label">Edit First Name</label>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="First Name" [(ngModel)]=member.firstName>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Edit Last Name</label>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]=member.lastName>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Edit Date of birth</label>
+    <div class="col">
+        <input type="date" class="form-control" placeholder="Date of birth" [(ngModel)]=member.dob>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Edit Address</label>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Address" [(ngModel)]=member.address>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Edit State</label>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="State" [(ngModel)]=member.state>
+    </div>
+    <br>
+    <label class="col-sm-2 col-form-label">Edit City</label>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="City" [(ngModel)]=member.city>
+    </div>
+    <br>
+
+    <button class="btn btn-primary" type="button" (click)="update(member)">Update Student</button>
+
+</div>
+
+<br>
