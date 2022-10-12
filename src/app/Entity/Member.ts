@@ -7,4 +7,5 @@ export default class Member{
     address:string="";
     state:string="";
     city:string="";
+    physicianName:string="";
 }

@@ -12,7 +12,7 @@
                 <th>Address</th>
                 <th>State</th>
                 <th>City</th>
-                <th>Claim</th>
+            <!--<th>Claim</th>-->
                 <th>Show claims</th>
             </tr>
         </thead>
@@ -26,7 +26,7 @@
                 <td >{{s.address}}</td>
                 <td>{{s.state}}</td>
                 <td>{{s.city}}</td>
-                <td><a class="btn btn-info" (click)="openModal(s.id)">Submit</a></td>
+              <!--  <td><a class="btn btn-info" (click)="openModal(s.id)">Submit</a></td> -->
                 <td><a class="btn btn-success" (click)="showClaims(s.id)">Claims</a></td>
             </tr>
         </tbody>
@@ -34,6 +34,24 @@
 </div>
 
 
+<br>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="card text-bg-info mb-3" style="width: 20rem;" *ngFor="let c of claims;index as i">
+    <div class="card-header"><h3><b>Claim Details</b></h3></div>
+    <div class="card-body">
+      <p class="card-text"><b>Claim Id</b> {{c.claimId}}</p>
+      <p class="card-text" *ngIf="c.claimType === 1"><b>Claim Type:</b> Vision</p>
+      <p class="card-text" *ngIf="c.claimType === 2"><b>Claim Type:</b> Dental</p>
+      <p class="card-text" *ngIf="c.claimType === 3"><b>Claim Type:</b> Medical</p>
+      <p class="card-text"><b>Claim Date</b> {{c.claimDate | date:'d/M/yyyy'}}</p>
+      <p class="card-text"><b>Claim Amount</b> {{c.claimAmount}}</p>
+      <p class="card-text"><b>Remarks</b> {{c.remarks}}</p>
+    </div>
+
+</div>
+</div>
+
+<!--
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -78,7 +96,10 @@
     </div>
 </div>
 
+-->
 
+
+<!--
 <div class="container">
     <table class="table table-light table-striped">
         <thead class="table-success">
@@ -105,3 +126,4 @@
        </tbody>
    </table>  
 </div>
+-->
