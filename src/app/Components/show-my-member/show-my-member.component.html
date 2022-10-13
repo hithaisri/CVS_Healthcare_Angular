@@ -33,8 +33,19 @@
 
 
 <br>
-<div class="col-auto">
-<div class="card text-bg-info mb-3" style="width: 20rem;" *ngFor="let c of members">
+
+
+<div class="container-md my-6 bg-info text-white" *ngFor="let c of members">
+    <div class="mt-2 p-3 bg-black text-white rounded">
+    <h2><b>{{c.firstName}} {{c.lastName}}</b></h2>
+    <h5><b>{{c.email}}</b></h5>
+    <p><b>Date of birth : {{c.dob | date:'d/M/yyyy'}}</b></p>
+    <p><b>Address : {{c.address}} {{c.state}} {{c.city}}</b></p>
+    <p class="btn btn-success" (click)="openModalNew(c.id)" ><b>Submit Claim</b></p>
+</div>
+</div>
+   <!--<div class="col-md-8">
+<div class="card text-bg-info mb-3" style="max-width: 540px;" *ngFor="let c of members">
     <div class="card-header"><b>{{c.firstName}} {{c.lastName}}</b></div>
     <div class="card-body">
       <h5 class="card-title"><b>{{c.email}}</b></h5>
@@ -42,8 +53,9 @@
       <p class="card-text"><b>Address : {{c.address}} {{c.state}} {{c.city}}</b></p>
       <p class="btn btn-success" (click)="openModalNew(c.id)" ><b>Submit Claim</b></p>
     </div>
-  </div>
 </div>
+ 
+</div>--> 
 
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
     <div class="modal-dialog" role="document">

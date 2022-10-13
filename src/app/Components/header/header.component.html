@@ -5,14 +5,14 @@
      <!--  <a class="navbar-brand" href="#">HCM</a>--> 
     
     <ul class="navbar-nav">
-      <li><a *ngIf="userService.isAdminLoggedIn()" routerLink="/addMember" class="nav-link">Add Member</a></li>
+      <li><a *ngIf="userService.isAdminLoggedIn()" routerLink="/addMember" class="nav-link">Member Registration</a></li>
       <li><a *ngIf="userService.isAdminLoggedIn()" routerLink="/updateMember" class="nav-link">Update Member</a></li>
       <li><a *ngIf="userService.isAdminLoggedIn()" routerLink="/showMembers" class="nav-link">Show Members</a></li>
       <li><a *ngIf="userService.isAdminLoggedIn()" routerLink="/searchMember" class="nav-link">Search Members</a></li>
       <li><a *ngIf="userService.isMemberLoggedIn()" routerLink="/myMember" class="nav-link">My Member Details</a></li>
-      <li><a *ngIf="userService.isMemberLoggedIn()" routerLink="/myClaims" class="nav-link">Show My Claim Details</a></li>
-      <li><a *ngIf="!userService.isUserLoggedIn()" (click)="openModal()" class="nav-link">Login</a></li>
-      <li><a *ngIf="!userService.isUserLoggedIn()" routerLink="/signup" class="nav-link">Sign Up</a></li>
+      <li><a *ngIf="userService.isMemberLoggedIn()" routerLink="/myClaims" class="nav-link">My Claim Details</a></li>
+      <li><a *ngIf="!userService.isUserLoggedIn()" (click)="openModal()" class="nav-link">User Login</a></li>
+      <li><a *ngIf="!userService.isUserLoggedIn()" routerLink="/signup" class="nav-link">User Registration</a></li>
       <li><a *ngIf="userService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>      
 
       <li> <div class="d-grid gap-2 d-md-flex justify-content-md-end">
