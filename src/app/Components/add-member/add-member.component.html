@@ -7,13 +7,16 @@
       <div class="col-sm-10">
         <input type="text" id="firstNameWithValidate" name="firstNameWithValidate" class="form-control"
           #firstNameWithValidate="ngModel" [(ngModel)]=member.firstName placeholder="First Name" aria-label="First Name"
-          minlength="5" required>
+          minlength="5" maxlength="20" required>
         <div *ngIf="firstNameWithValidate.touched">
           <p *ngIf="firstNameWithValidate.errors?.['required']">
             First Name is a Required field!
           </p>
           <p *ngIf="firstNameWithValidate.errors?.['minlength']">
             First Name must be at least 5 characters long.
+          </p>
+          <p *ngIf="firstNameWithValidate.errors?.['maxlength']">
+            First Name must be 20 characters long.
           </p>
         </div>
         
@@ -63,11 +66,14 @@
       <label class="col-sm-2 col-form-label">Adress</label>
       <div class="col-sm-10">
         <input type="text" id="addressWithValidate" name="addressWithValidate"  #addressWithValidate="ngModel"
-        class="form-control" [(ngModel)]=member.address placeholder="Adress" aria-label="Adress"
-          required>
+        class="form-control" [(ngModel)]=member.address placeholder="Address" aria-label="Address"
+        maxlength="100" required>
           <div *ngIf="addressWithValidate.touched">
             <p *ngIf="addressWithValidate.errors?.['required']">
               Address is a Mandatory field!
+            </p>
+            <p *ngIf="addressWithValidate.errors?.['maxlength']">
+              First Name must be 100 characters long.
             </p>
           </div>
       </div>

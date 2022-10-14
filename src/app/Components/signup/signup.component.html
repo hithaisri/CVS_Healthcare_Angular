@@ -1,6 +1,6 @@
 <section class="vh-100" style="background-color: #eee;">
     <div class="container h-100">
-          
+
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
@@ -9,15 +9,26 @@
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
-                               
+
                                 <form class="mx-1 mx-md-4">
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                          <label class="form-label">Email</label>
-                                            <input type="text" class="form-control" [(ngModel)]=user.userEmail
-                                                [ngModelOptions]="{standalone: true}" />
+                                            <label class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="emailWithValidate"
+                                                name="emailWithValidate" #emailWithValidate="ngModel"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                                [(ngModel)]=user.userEmail [ngModelOptions]="{standalone: true}"
+                                                required>
+                                            <div *ngIf="emailWithValidate.touched">
+                                                <p *ngIf="emailWithValidate.errors?.['required']">
+                                                    Email is a Mandatory field!
+                                                </p>
+                                                <p *ngIf="emailWithValidate.errors?.['pathern']">
+                                                    Invalid email address! Try again.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -25,8 +36,15 @@
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label">Password</label>
-                                            <input type="password" class="form-control" [(ngModel)]=user.password
-                                                [ngModelOptions]="{standalone: true}" />
+                                            <input type="password" class="form-control" id="passwordWithValidate"
+                                                name="passwordWithValidate" #passwordWithValidate="ngModel"
+                                                [(ngModel)]=user.password [ngModelOptions]="{standalone: true}"
+                                                required>
+                                            <div *ngIf="passwordWithValidate.touched">
+                                                <p *ngIf="passwordWithValidate.errors?.['required']">
+                                                    Password is a Mandatory field!
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -48,7 +66,7 @@
                                             (click)=signupUser()>Register</button>
                                     </div>
 
-                                    
+
 
                                 </form>
 
